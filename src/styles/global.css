@@ -290,7 +290,6 @@ footer a:hover { color: var(--ink); }
 .about-skills > span { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; background: var(--soft); border: 1px solid var(--line); border-radius: 6px; padding: 5px 9px; }
 .about-favorites > span { padding: 3px 0; }
 .about-favorites > span + span::before { content: '/'; color: var(--muted); margin-right: 10px; }
-#about dd.about-ai { font-size: 25px; font-weight: 600; letter-spacing: -.6px; }
 @media (max-width: 760px) {
   .project-overview h2 { font-size: 23px; }
   .skill-cloud { padding: 0; min-height: 154px; gap: 0; }
