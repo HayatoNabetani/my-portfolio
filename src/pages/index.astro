@@ -37,7 +37,7 @@ const projects = [
       <section id="activities" class="section" aria-labelledby="activity-title">
         <h2 class="section-title" id="activity-title"><span>Activities</span></h2>
         <div class="activity-grid">
-          <article class="activity-card"><div class="skill-cloud" id="tech-marquee"><div class="skill-track">{[0, 1].map(copy => <div class="skill-set" aria-hidden={copy === 1 ? 'true' : undefined}>{profile.skills.map(skill => <div class="skill-tile"><TechLogo name={skill} size={32} colored /><span>{skill === 'Tailwind CSS' ? 'Tailwind' : skill}</span></div>)}</div>)}</div><button class="marquee-toggle" type="button" aria-label="ロゴの自動スクロールを一時停止" aria-pressed="false"><svg class="pause-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14m8-14v14" /></svg><svg class="play-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z" /></svg></button></div><div class="activity-content"><h3>Tech Stack</h3><p>フロントエンドからバックエンドまで。<br />使いやすさと、日々の作業を楽にする仕組みに関心があります。</p><a class="text-link" href={profile.github} target="_blank" rel="noopener noreferrer">GitHubを見る <span aria-hidden="true">↗</span></a></div></article>
+          <article class="activity-card"><div class="skill-cloud" id="tech-marquee"><div class="skill-track">{[0, 1].map(copy => <div class="skill-set" aria-hidden={copy === 1 ? 'true' : undefined}>{profile.skills.map(skill => <div class="skill-tile"><TechLogo name={skill} size={32} colored /><span>{skill === 'Tailwind CSS' ? 'Tailwind' : skill}</span></div>)}</div>)}</div></div><div class="activity-content"><h3>Tech Stack</h3><p>フロントエンドからバックエンドまで。<br />使いやすさと、日々の作業を楽にする仕組みに関心があります。</p><a class="text-link" href={profile.github} target="_blank" rel="noopener noreferrer">GitHubを見る <span aria-hidden="true">↗</span></a></div></article>
           <article class="activity-card"><div class="activity-symbols" aria-hidden="true"><span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18m-13 4 3 3-3 3m7-1h3" /></svg></span><span><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5" /></svg></span><span><svg viewBox="0 0 24 24"><path d="M6 3v11m0 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm12-4a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM9 17h4a5 5 0 0 0 5-5v-2" /></svg></span></div><div class="activity-content"><h3>個人開発</h3><p>業務の小さな不便を、つくって解消する。<br />Webツールからデスクトップアプリまで、試しながら開発しています。</p><a class="text-link" href="#works">個人開発一覧へ <span aria-hidden="true">↗</span></a></div></article>
         </div>
       </section>
@@ -74,15 +74,6 @@ const projects = [
       <button id="theme-toggle" aria-label="ダークテーマに切り替える" title="テーマを切り替える"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
     </nav>
     <script>
-      const marquee = document.querySelector<HTMLElement>('#tech-marquee');
-      const marqueeButton = marquee?.querySelector<HTMLButtonElement>('.marquee-toggle');
-      marqueeButton?.addEventListener('click', () => {
-        if (!marquee) return;
-        const paused = marquee.dataset.paused !== 'true';
-        marquee.dataset.paused = String(paused);
-        marqueeButton.setAttribute('aria-pressed', String(paused));
-        marqueeButton.setAttribute('aria-label', paused ? 'ロゴの自動スクロールを再開' : 'ロゴの自動スクロールを一時停止');
-      });
       const themeButton = document.querySelector<HTMLButtonElement>('#theme-toggle');
       const updateLabel = () => { themeButton?.setAttribute('aria-label', document.documentElement.dataset.theme === 'dark' ? 'ライトテーマに切り替える' : 'ダークテーマに切り替える'); };
       updateLabel();
