@@ -279,7 +279,6 @@ footer a:hover { color: var(--ink); }
 .skill-track { display: flex; align-items: center; flex: 0 0 auto; width: max-content; animation: tech-flow 28s linear infinite; }
 .skill-set { display: flex; align-items: center; gap: 24px; padding-right: 24px; flex: 0 0 auto; }
 .skill-tile { width: 76px; flex: 0 0 76px; }
-.skill-cloud:hover .skill-track, .skill-cloud:focus-within .skill-track { animation-play-state: paused; }
 @keyframes tech-flow { to { transform: translateX(-50%); } }
 /* About Me gets a clear label, an icon, and a distinct body in each entry. */
 #about .about-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 36px; padding: 0; }
@@ -310,4 +309,33 @@ footer a:hover { color: var(--ink); }
 .skill-cloud::after { right: 0; background: linear-gradient(to left, var(--soft), transparent); }
 @media (prefers-reduced-motion: reduce) {
   .skill-cloud::before, .skill-cloud::after { display: none; }
+}
+button.project-image { border-top: 0; border-left: 0; border-bottom: 0; font-family: inherit; cursor: zoom-in; }
+.screenshot-link { padding: 0; border: 0; background: transparent; color: inherit; font-family: inherit; cursor: pointer; }
+.screenshot-dialog { width: min(920px, calc(100% - 48px)); max-width: none; max-height: calc(100dvh - 48px); padding: 0; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 24px 80px #0005; }
+.screenshot-dialog::backdrop { background: #0009; backdrop-filter: blur(5px); }
+.screenshot-panel { display: flex; flex-direction: column; max-height: calc(100dvh - 48px); }
+.screenshot-panel header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+.screenshot-panel h2 { margin: 0; font-size: 17px; line-height: 1.5; font-weight: 550; }
+.modal-close { display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; background: var(--soft); color: var(--ink); border-radius: 50%; cursor: pointer; }
+.modal-close svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.screenshot-body { padding: 20px; overflow: auto; display: flex; justify-content: center; min-height: 0; }
+.screenshot-body img { width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 170px); object-fit: contain; border-radius: 8px; }
+body:has(.screenshot-dialog[open]) { overflow: hidden; }
+@media (max-width: 760px) {
+  body { font-size: 15px; }
+  .role { font-size: 14px; }
+  .intro-note, .activity-content p, #works .project-content p:not(.project-type), #about dd { font-size: 15px; }
+  .activity-content h3 { font-size: 20px; }
+  .section-title { font-size: 24px; }
+  #works .project-content h3 { font-size: 20px; }
+  #experience .experience-company { font-size: 18px; }
+  .experience-role, #experience .experience-description { font-size: 14px; }
+  .screenshot-dialog { width: calc(100% - 24px); max-height: calc(100dvh - 32px); border-radius: 12px; }
+  .screenshot-panel { max-height: calc(100dvh - 32px); }
+  .screenshot-panel header { padding: 12px 14px; }
+  .screenshot-panel h2 { font-size: 14px; }
+  .screenshot-body { padding: 12px; }
+  .screenshot-body img { max-height: calc(100dvh - 138px); }
+  #works button.project-image { border-bottom: 1px solid var(--line); }
 }
