@@ -40,7 +40,7 @@ My Duet Displayは公開GitHubリポジトリを確認できなかったため�
 
 ## 公開
 
-`npm run build` の出力を静的ホスティングへ配置できます。公開ドメインが決まったら `astro.config.mjs` の `site`、canonical、OGP画像、サイトマップを設定してください。現在はローカル開発のみです。
+`npm run build` の出力を静的ホスティングへ配置できます。公開ドメインが決まったら `astro.config.mjs` の `site`、canonical、OGP画像、サイトマップを設定してください。Vercel本番URL: https://my-portfolio-tau-nine-72.vercel.app/ 。GitHubのmainブランチとVercelを接続しています。`vercel.json`でAstro・ビルドコマンド・出力ディレクトリを指定しています。
 
 ## アイコン
 

@@ -6,3 +6,7 @@ dist/
 !.env.example
 .DS_Store
 .preview-*.jpg
+.vercel
+.env*
+
+.vercel/
