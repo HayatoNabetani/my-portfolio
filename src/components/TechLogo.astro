@@ -1,0 +1,20 @@
+---
+import {
+  siTypescript, siPython, siNextdotjs, siTailwindcss, siReact,
+  siRust, siTauri, siPostgresql, siSwift, siShadcnui, siFfmpeg,
+  siGithub, siX, type SimpleIcon,
+} from 'simple-icons';
+interface Props { name: string; size?: number; colored?: boolean; }
+const { name, size = 24, colored = false } = Astro.props;
+const icons: Record<string, SimpleIcon> = {
+  TypeScript: siTypescript, Python: siPython, 'Next.js': siNextdotjs,
+  'Tailwind CSS': siTailwindcss, React: siReact, Rust: siRust,
+  'Tauri 2': siTauri, PostgreSQL: siPostgresql, Swift: siSwift,
+  SwiftUI: siSwift, 'shadcn/ui': siShadcnui, 'FFmpeg.wasm': siFfmpeg,
+  GitHub: siGithub, X: siX,
+};
+const icon = icons[name];
+// Neutral logos follow the active theme; colored logos keep recognizable brand colors.
+const useBrandColor = colored && icon && icon.hex !== '000000' && icon.hex !== 'FFFFFF';
+---
+{icon ? <svg class:list={['tech-logo', { 'brand-color': useBrandColor }]} style={useBrandColor ? `--brand-color: #${icon.hex}` : undefined} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={icon.path} /></svg> : name === 'Database' ? <svg class="tech-logo database-logo" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" /></svg> : null}
