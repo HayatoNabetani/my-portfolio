@@ -338,3 +338,9 @@ body:has(.screenshot-dialog[open]) { overflow: hidden; }
   .screenshot-body img { max-height: calc(100dvh - 138px); }
   #works button.project-image { border-bottom: 1px solid var(--line); }
 }
+/* Shared X branding for both contact links. */
+.contact-button { gap: 13px; background: var(--ink); border-color: var(--ink); color: var(--bg); padding-inline: 24px; }
+.contact-button:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); opacity: .88; }
+.contact-arrow { font-size: 17px; font-weight: 400; opacity: .65; }
+footer .footer-contact { gap: 10px; min-height: 44px; padding: 8px 15px; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); color: var(--ink); font-size: 14px; font-weight: 500; transition: border-color .15s, background .15s; }
+footer .footer-contact:hover { border-color: var(--muted); background: var(--soft); }
